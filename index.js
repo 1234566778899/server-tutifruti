@@ -9,6 +9,7 @@ const io = require('socket.io')(server, {
     }
 });
 
+const port = process.env.PORT || 4000;
 instrument(io, {
     auth: false
 })
@@ -80,7 +81,7 @@ io.on('connection', (socket) => {
     })
 });
 
-server.listen(4000, () => {
+server.listen(port, () => {
     console.log('Server running');
 });
 
