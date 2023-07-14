@@ -1,21 +1,19 @@
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
-const { instrument } = require('@socket.io/admin-ui');
 const io = require('socket.io')(server, {
     cors: {
-        origin: ['http://localhost:3000', 'https://admin.socket.io', 'https://react-tutifruti-ordazhoyos2001-gmailcom.vercel.app'],
+        origin: ['https://react-tutifruti.vercel.app'],
         credentials: true
     }
 });
 
 const port = process.env.PORT || 4000;
-instrument(io, {
-    auth: false
-})
+
 const salas = new Map();
+
 app.get('/', (req, res) => {
-    res.send('Hola mundo');
+    res.send('Hola mundo 2');
 })
 io.on('connection', (socket) => {
     socket.on('crear-sala', (data) => {
