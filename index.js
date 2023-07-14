@@ -55,6 +55,7 @@ io.on('connection', (socket) => {
                 newSocket.emit('corregir-respuesta', _data);
             })
             salaSocket.on('reiniciar', _data => {
+                sala.usuarios = _data;
                 newSocket.emit('reiniciar-juego', _data);
             })
             salaSocket.on('girar-letra', _data => {
@@ -64,23 +65,20 @@ io.on('connection', (socket) => {
             salaSocket.on('enviar-nombre', (_nombre) => {
                 sala.usuarios.push({
                     id: salaSocket.id,
-                    nombre: _nombre
+                    nombre: _nombre,
+                    puntaje: 0
                 });
                 newSocket.emit('enviar-usuarios', {
                     usuarios: sala.usuarios,
                     categorias: sala.categorias
                 });
-
             })
             salaSocket.on('chat-message', (_data) => {
                 newSocket.emit('chat-message', { nombre: _data.user, id: salaSocket.id, mensaje: _data.mensaje });
             })
-
         })
     })
 });
-
-
 
 server.listen(4000, () => {
     console.log('Server running');
