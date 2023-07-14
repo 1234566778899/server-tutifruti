@@ -4,7 +4,7 @@ const server = require('http').createServer(app);
 const { instrument } = require('@socket.io/admin-ui');
 const io = require('socket.io')(server, {
     cors: {
-        origin: ['http://localhost:3000', 'https://admin.socket.io', 'https://react-tutifruti.vercel.app'],
+        origin: ['http://localhost:3000', 'https://admin.socket.io', 'https://react-tutifruti-ordazhoyos2001-gmailcom.vercel.app'],
         credentials: true
     }
 });
