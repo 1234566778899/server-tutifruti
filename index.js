@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const { instrument } = require('@socket.io/admin-ui');
-const cors = require('cors');
 const io = require('socket.io')(server, {
     cors: {
         origin: ['http://localhost:3000', 'https://admin.socket.io', 'https://react-tutifruti.vercel.app'],
@@ -10,7 +9,6 @@ const io = require('socket.io')(server, {
     }
 });
 
-app.use(cors());
 const port = process.env.PORT || 4000;
 instrument(io, {
     auth: false
