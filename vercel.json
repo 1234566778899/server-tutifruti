@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./index.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
   ],
@@ -13,11 +13,10 @@
       "headers": {
         "Access-Control-Allow-Origin": "https://react-tutifruti.vercel.app"
       }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
     }
   ]
 }
-
-
-
-
-
