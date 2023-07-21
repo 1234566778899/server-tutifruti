@@ -15,7 +15,7 @@ instrument(io, {
 })
 const salas = new Map();
 app.get('/', (req, res) => {
-    res.send('Hola mundo');
+    res.send('Hola mundo: '+port);
 })
 io.on('connection', (socket) => {
     socket.on('crear-sala', (data) => {
