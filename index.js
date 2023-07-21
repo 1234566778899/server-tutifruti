@@ -9,13 +9,13 @@ const io = require('socket.io')(server, {
     }
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT||4000 ;
 instrument(io, {
     auth: false
 })
 const salas = new Map();
 app.get('/', (req, res) => {
-    res.send('Hola mundo v7: ' + port);
+    res.send('Hola mundo v8: ' + port);
 })
 io.on('connection', (socket) => {
     socket.on('crear-sala', (data) => {

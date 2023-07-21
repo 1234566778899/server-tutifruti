@@ -8,13 +8,6 @@
   ],
   "routes": [
     {
-      "src": "/socket.io/(.*)",
-      "dest": "https://server-tutifruti.vercel.app/socket.io/$1",
-      "headers": {
-        "Access-Control-Allow-Origin": "https://react-tutifruti.vercel.app"
-      }
-    },
-    {
       "src": "/(.*)",
       "dest": "/"
     }
