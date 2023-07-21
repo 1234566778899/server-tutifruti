@@ -9,12 +9,13 @@ const io = require('socket.io')(server, {
     }
 });
 
+const port = process.env.PORT;
 instrument(io, {
     auth: false
 })
 const salas = new Map();
 app.get('/', (req, res) => {
-    res.send('Hola mundo v6: '+ process.env.PORT);
+    res.send('Hola mundo v7: ' + port);
 })
 io.on('connection', (socket) => {
     socket.on('crear-sala', (data) => {
@@ -82,7 +83,7 @@ io.on('connection', (socket) => {
     })
 });
 
-server.listen(process.env.PORT, () => {
+server.listen(port, () => {
     console.log('Server running');
 });
 
